@@ -43,4 +43,4 @@ class MainWindow(QMainWindow):
         self.ui.lineEdit_2.clear()
         self.ui.lineEdit_3.clear()
         self.ui.lineEdit_4.clear()
-        self.ui.lineEdit_5.clear()s
+        self.ui.lineEdit_5.clear()
