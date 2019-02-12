@@ -23,7 +23,9 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def mostrar(self):
-        self.paqueteria.mostrar()
+        #self.paqueteria.mostrar()
+        for paquete in self.paqueteria.lista:
+                self.ui.plainTextEdit.insertPlainText(str(paquete))
 
     @Slot()
     def guardar(self):
