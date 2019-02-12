@@ -1,0 +1,14 @@
+[
+     {
+          "id": "75",
+          "origen": "Mexico",
+          "distancia": "New York",
+          "peso": "15.2"
+     },
+     {
+          "id": "89",
+          "origen": "MEXICO",
+          "distancia": "UNINTED STATES",
+          "peso": "65.3"
+     }
+]

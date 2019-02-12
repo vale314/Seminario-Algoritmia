@@ -1,0 +1,16 @@
+[
+     {
+          "id": "789",
+          "origen": "MEXICO",
+          "destino": "AUSTRALIA",
+          "distancia": "AUSTRALIA",
+          "peso": "54.5"
+     },
+     {
+          "id": "7855",
+          "origen": "MEXICO",
+          "destino": "CANADA",
+          "distancia": "CANADA",
+          "peso": "76.2"
+     }
+]
