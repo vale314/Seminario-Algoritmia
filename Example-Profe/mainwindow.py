@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QMainWindow, QMessageBox,QFileDialog
+from PySide2.QtWidgets import QMainWindow, QMessageBox, QFileDialog
 from ui_mainwindow import Ui_MainWindow
 from PySide2.QtCore import Slot
 from paquete import Paquete
@@ -14,17 +14,28 @@ class MainWindow(QMainWindow):
 
         self.ui.pushButton.clicked.connect(self.click)
         self.ui.pushButton_2.clicked.connect(self.mostrar)
-        self.ui.actionGuardar.triggered.connect(self.guardar)
 
-    @Slot()
-    def mostrar(self):
-        self.paqueteria.mostrar()
+        self.ui.actionGuardar.triggered.connect(self.guardar)
+        self.ui.actionAbrir.triggered.connect(self.abrir)
 
     @Slot()
     def guardar(self):
-        file=QFileDialog.getSaveFileName(self,'Guardar Archivo...','.','TXT (*.txt)')
+        file= QFileDialog.getSaveFileName(self, 'Guardar archivo...', '.', 'JSON (*.json)')
         print(file)
         self.paqueteria.guardar(file[0])
+
+    @Slot()
+    def abrir(self):
+        file= QFileDialog.getOpenFileName(self, 'Abrir archivo', '.', 'JSON (*.json)')
+        self.paqueteria.recuperar(file[0])
+
+
+    @Slot()
+    def mostrar(self):
+        for paquete in self.paqueteria.lista:
+            self.ui.plainTextEdit.insertPlainText(str(paquete))
+        #self.paqueteria.mostrar()
+
 
     @Slot()
     def click(self):

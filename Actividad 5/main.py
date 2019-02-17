@@ -1,5 +1,6 @@
 # pip install -r requirements.txt
-# convertion ui to python pyside2-uic origen.ui > ui_destino.py
+# convertion ui to python pyside2-uic origen.ui > ui_destino.py  # pip freeze > requirements.txt
+
 import sys
 from PySide2.QtWidgets import QApplication, QLabel
 from mainwindow import MainWindow

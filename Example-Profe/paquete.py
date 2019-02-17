@@ -12,3 +12,10 @@ class Paquete:
             'destino: ' + self.destino + '\n' + \
             'distancia: ' + str(self.distancia) + '\n' + \
             'peso: ' + str(self.peso) + '\n'
+
+    def to_dicc(self):#diccionario
+        return {'id': self.id,
+                'origen': self.origen,
+                'destino': self.destino,
+                'distancia': self.distancia,
+                'peso': self.peso}
