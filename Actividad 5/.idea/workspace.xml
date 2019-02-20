@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="383122f5-91fd-488c-b66f-a0e575e9a826" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Actividad 3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Particulas.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archivo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capturador.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/freeze" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mainwindow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mainwindow.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/particula.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui_mainwindow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Example-Profe/Paquetes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Example-Profe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Example-Profe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Example-Profe/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Example-Profe/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Example-Profe/mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Example-Profe/mainwindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Example-Profe/mainwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../Example-Profe/mainwindow.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Example-Profe/paquete.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Example-Profe/paquete.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Example-Profe/paqueteria.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Example-Profe/paqueteria.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Example-Profe/ui_mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Example-Profe/ui_mainwindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archivo.json" beforeDir="false" afterPath="$PROJECT_DIR$/archivo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capturador.py" beforeDir="false" afterPath="$PROJECT_DIR$/capturador.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/particula.py" beforeDir="false" afterPath="$PROJECT_DIR$/particula.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/capturador.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+            <state relative-caret-position="268">
+              <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -50,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainwindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+            <state relative-caret-position="307">
+              <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -62,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/particula.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="357">
+              <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -75,11 +54,6 @@
               <caret selection-end-line="171" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Particulas.txt">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -173,17 +147,19 @@
       <workItem from="1549693923974" duration="1952000" />
       <workItem from="1550359805206" duration="4088000" />
       <workItem from="1550364109264" duration="2838000" />
+      <workItem from="1550698933299" duration="1146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15331000" />
+    <option name="totallyTimeSpent" value="16477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2647504" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2685325" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.2618658" />
@@ -200,9 +176,9 @@
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="SciView" order="2" />
-      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.32980332" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,9 +205,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui_mainwindow.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainwindow.ui">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -239,30 +212,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Particulas.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui_mainwindow.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/particula.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        <state relative-caret-position="307">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Particulas.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/particula.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/capturador.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        <state relative-caret-position="268">
+          <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

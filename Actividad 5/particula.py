@@ -1,6 +1,7 @@
+import math
 class Particula:
     def __init__(self):
-        self.id= ''
+        self.id=0
         self.origenX= 0
         self.origenY=0
         self.destinoX= 0
@@ -12,7 +13,8 @@ class Particula:
         self.blue=0
 
     def __str__(self):#Sobrecarga
-        return "id: " + self.id + '\n' + \
+
+        return "id: " + str(self.id) + '\n' + \
             'origenX: ' + str(self.origenX) + '\n' + \
             'origenY: ' + str(self.origenY) + '\n' + \
             'destinoX: ' + str(self.destinoX) + '\n' + \
@@ -36,8 +38,8 @@ class Particula:
                 'distancia': self.distancia,
                 'velocidad': self.velocidad,
                 "color":{
-                    'RED': self.red,
-                    'GREEN': self.green,
-                    'BLUE': self.blue
+                    'red': self.red,
+                    'green': self.green,
+                    'blue': self.blue
                 }
                }

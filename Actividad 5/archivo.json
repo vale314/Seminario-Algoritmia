@@ -1,6 +1,6 @@
 [
      {
-          "id": "87",
+          "id": 87,
           "origen": {
                "x": 987,
                "y": 567
@@ -12,13 +12,13 @@
           "distancia": 455.24169404833737,
           "velocidad": 100,
           "color": {
-               "RED": 567,
-               "GREEN": 876,
-               "BLUE": 456
+               "red": 567,
+               "green": 876,
+               "blue": 456
           }
      },
      {
-          "id": "89",
+          "id": 89,
           "origen": {
                "x": 90,
                "y": 87
@@ -30,9 +30,9 @@
           "distancia": 40.22437072223753,
           "velocidad": 765,
           "color": {
-               "RED": 333,
-               "GREEN": 777,
-               "BLUE": 898
+               "red": 333,
+               "green": 777,
+               "blue": 898
           }
      }
 ]

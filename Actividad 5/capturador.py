@@ -1,5 +1,6 @@
 import json
 from particula import Particula
+import math
 
 class Capturador:
     def __init__(self):
@@ -32,9 +33,9 @@ class Capturador:
                 p.origenY = particula['origen']['y']
                 p.destinoX = particula['destino']['x']
                 p.destinoY = particula['destino']['y']
-                p.distancia = particula['distancia']
+                p.distancia = math.sqrt(pow((int(p.destinoX)-int(p.origenX)),2)+pow((int(p.destinoY)-int(p.origenY)),2))
                 p.velocidad = particula['velocidad']
-                p.red = particula['color']['RED']
-                p.green = particula['color']['GREEN']
-                p.blue = particula['color']['BLUE']
+                p.red = particula['color']['red']
+                p.green = particula['color']['green']
+                p.blue = particula['color']['blue']
                 self.lista.append(p)
