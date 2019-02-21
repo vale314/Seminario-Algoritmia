@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Tue Feb 12 12:12:54 2019
+# Created: Thu Feb 21 11:48:53 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(457, 274)
+        MainWindow.resize(532, 413)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -67,9 +67,15 @@ class Ui_MainWindow(object):
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.gridLayout_3.addWidget(self.plainTextEdit, 0, 0, 1, 1)
         self.gridLayout.addWidget(self.groupBox_2, 0, 1, 1, 1)
+        self.groupBox_3 = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_3.setObjectName("groupBox_3")
+        self.gridLayout.addWidget(self.groupBox_3, 1, 0, 1, 2)
+        self.graphicsView = QtWidgets.QGraphicsView(self.centralwidget)
+        self.graphicsView.setObjectName("graphicsView")
+        self.gridLayout.addWidget(self.graphicsView, 2, 0, 1, 2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 457, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 532, 21))
         self.menubar.setObjectName("menubar")
         self.menuArchivo = QtWidgets.QMenu(self.menubar)
         self.menuArchivo.setObjectName("menuArchivo")
@@ -107,6 +113,7 @@ class Ui_MainWindow(object):
         self.label_4.setText(QtWidgets.QApplication.translate("MainWindow", "Distancia:", None, -1))
         self.pushButton_2.setText(QtWidgets.QApplication.translate("MainWindow", "Mostrar", None, -1))
         self.groupBox_2.setTitle(QtWidgets.QApplication.translate("MainWindow", "GroupBox", None, -1))
+        self.groupBox_3.setTitle(QtWidgets.QApplication.translate("MainWindow", "GroupBox", None, -1))
         self.menuArchivo.setTitle(QtWidgets.QApplication.translate("MainWindow", "Archivo", None, -1))
         self.actionAbrir.setText(QtWidgets.QApplication.translate("MainWindow", "Abrir", None, -1))
         self.actionAbrir.setShortcut(QtWidgets.QApplication.translate("MainWindow", "Ctrl+O", None, -1))

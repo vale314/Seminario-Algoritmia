@@ -1,8 +1,9 @@
-from PySide2.QtWidgets import QMainWindow, QMessageBox,QFileDialog
+from PySide2.QtWidgets import QMainWindow, QMessageBox,QFileDialog,QGraphicsScene
 from ui_mainwindow import Ui_MainWindow
 from PySide2.QtCore import Slot
 from paquete import Paquete
 from paqueteria import Paqueteria
+from PySide2.QtGui import QPen, QColor,QBrush
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -16,6 +17,28 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_2.clicked.connect(self.mostrar)
         self.ui.actionGuardar.triggered.connect(self.guardar)
         self.ui.actionAbrir.triggered.connect(self.abrir)
+
+        self.scene = QGraphicsScene()
+        self.scene.setSceneRect(0,0,500,500)
+        self.ui.graphicsView.setScene(self.scene)
+
+        self.pen = QPen()
+        self.pen.setColor(QColor(0,0,0))
+        self.pen.setWidth(30)
+
+        self.scene.addLine(0,0,499,0,self.pen)
+        self.scene.addLine(0,499,499,499,self.pen)
+        self.scene.addLine(0,0,0,499,self.pen)
+        self.scene.addLine(499,0,499,499,self.pen)
+
+        self.pen.setColor(QColor(100,20,200))
+        self.scene.addLine(10,10,490,490,self.pen)
+
+        self.scene.addEllipse(10,10,5,5,self.pen,QBrush(QColor(50,100,0)))
+
+        self.scene.addEllipse(490,490,5,5,self.pen,QBrush(QColor(50,100,0)))
+
+
     @Slot()
     def abrir(self):
         file = QFileDialog.getOpenFileName(self,'Abrir archivo','.','JSON(*.json)')
