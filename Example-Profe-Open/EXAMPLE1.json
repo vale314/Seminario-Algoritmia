@@ -1,0 +1,23 @@
+[
+     {
+          "id": "1",
+          "origen": "a",
+          "destino": "b",
+          "distancia": "b",
+          "peso": "12."
+     },
+     {
+          "id": "2",
+          "origen": "c",
+          "destino": "d",
+          "distancia": "d",
+          "peso": "23."
+     },
+     {
+          "id": "3",
+          "origen": "R",
+          "destino": "E",
+          "distancia": "E",
+          "peso": "93.8"
+     }
+]

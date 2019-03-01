@@ -1,7 +1,4 @@
 import json
-from PySide2.QtWidgets import QMainWindow, QMessageBox,QFileDialog,QGraphicsScene
-from ui_mainwindow import Ui_MainWindow
-from PySide2.QtGui import QPen, QColor,QBrush
 from particula import Particula
 import math
 

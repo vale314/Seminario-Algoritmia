@@ -21,6 +21,15 @@ class Paqueteria:
             #for paquete in self.lista:
             #    archivo.write(str(paquete.to_dict()))
 
+    def oredenar_origen(self):
+        self.lista.sort()
+
+    def ordenarDistancia(self,paquete):
+        return paquete.distancia
+
+    def ordenar_distancia(self):
+        #,reverse=TRUE
+        self.lista.sort(key=self.ordenarDistancia)
 
     def recuperar(self,file):
         with open(file,'r') as archivo:

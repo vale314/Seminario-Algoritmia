@@ -53,6 +53,7 @@ class MainWindow(QMainWindow):
         for particula in self.capturador.lista:
             self.ui.plainTextEdit.insertPlainText(str(particula))
             self.pen.setColor(QColor(particula.red, particula.green, particula.blue))
+            self.scene.addEllipse(particula.origenX, particula.origenY, 5, 5, self.pen, QBrush(QColor(particula.red, 10,particula.green, particula.blue)))
             self.scene.addLine(particula.origenX, particula.origenY, particula.destinoX, particula.destinoY, self.pen)
         #self.paqueteria.mostrar()
 

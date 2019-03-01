@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Thu Feb 21 11:48:53 2019
+# Created: Thu Feb 28 11:28:46 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -63,9 +63,15 @@ class Ui_MainWindow(object):
         self.groupBox_2.setObjectName("groupBox_2")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.groupBox_2)
         self.gridLayout_3.setObjectName("gridLayout_3")
+        self.pushButton_3 = QtWidgets.QPushButton(self.groupBox_2)
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.gridLayout_3.addWidget(self.pushButton_3, 1, 0, 1, 1)
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.groupBox_2)
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.gridLayout_3.addWidget(self.plainTextEdit, 0, 0, 1, 1)
+        self.pushButton_4 = QtWidgets.QPushButton(self.groupBox_2)
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.gridLayout_3.addWidget(self.pushButton_4, 2, 0, 1, 1)
         self.gridLayout.addWidget(self.groupBox_2, 0, 1, 1, 1)
         self.groupBox_3 = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox_3.setObjectName("groupBox_3")
@@ -113,6 +119,8 @@ class Ui_MainWindow(object):
         self.label_4.setText(QtWidgets.QApplication.translate("MainWindow", "Distancia:", None, -1))
         self.pushButton_2.setText(QtWidgets.QApplication.translate("MainWindow", "Mostrar", None, -1))
         self.groupBox_2.setTitle(QtWidgets.QApplication.translate("MainWindow", "GroupBox", None, -1))
+        self.pushButton_3.setText(QtWidgets.QApplication.translate("MainWindow", "Ordenar Por Origen", None, -1))
+        self.pushButton_4.setText(QtWidgets.QApplication.translate("MainWindow", "Ordenar Por Distancia", None, -1))
         self.groupBox_3.setTitle(QtWidgets.QApplication.translate("MainWindow", "GroupBox", None, -1))
         self.menuArchivo.setTitle(QtWidgets.QApplication.translate("MainWindow", "Archivo", None, -1))
         self.actionAbrir.setText(QtWidgets.QApplication.translate("MainWindow", "Abrir", None, -1))

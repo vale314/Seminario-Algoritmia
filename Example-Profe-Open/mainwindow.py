@@ -19,6 +19,7 @@ class MainWindow(QMainWindow):
         self.ui.actionAbrir.triggered.connect(self.abrir)
 
         self.scene = QGraphicsScene()
+        ##COMENTERA ABAJAO
         self.scene.setSceneRect(0,0,500,500)
         self.ui.graphicsView.setScene(self.scene)
 
@@ -38,6 +39,17 @@ class MainWindow(QMainWindow):
 
         self.scene.addEllipse(490,490,5,5,self.pen,QBrush(QColor(50,100,0)))
 
+        self.ui.pushButton_3.clicked.connect(self.ordenar_origen)
+
+        self.ui.pushButton_4.clicked.connect(self.ordenar_distancia)
+
+    @Slot()
+    def ordenar_origen(self):
+        self.paqueteria.oredenar_origen()
+
+    @Slot()
+    def ordenar_distancia(self):
+        self.paqueteria.ordenar_distancia()
 
     @Slot()
     def abrir(self):

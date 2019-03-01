@@ -12,6 +12,10 @@ class Paquete:
             'destino: ' + self.destino + '\n' + \
             'distancia: ' + str(self.distancia) + '\n' + \
             'peso: ' + str(self.peso) + '\n'
+    ##less to
+    def __lt__(self, other):
+        return self.origen < other.origen
+    #__gt__ greater to
 
     def to_dict(self):
         return {'id': self.id,
