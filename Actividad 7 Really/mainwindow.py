@@ -1,5 +1,3 @@
-from PySide2.QtWidgets import QMainWindow, QMessageBox, QFileDialog
-from ui_mainwindow import  Ui_MainWindow
 from PySide2.QtCore import Slot
 from particula import Particula
 from capturador import Capturador
@@ -18,7 +16,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         self.scene = QGraphicsScene()
-        #self.scene.setSceneRect(0, 0, 500, 500)
+        #self.scene.setSceneRect(0,500)
         self.ui.graphicsView.setScene(self.scene)
 
         self.pen = QPen()

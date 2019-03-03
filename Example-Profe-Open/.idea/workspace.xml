@@ -4,7 +4,12 @@
     <bookmark url="file://$PROJECT_DIR$/main.py" line="3" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="306aa20d-6e56-4258-9d63-1d8d17533a14" name="Default Changelist" comment="" />
+    <list default="true" id="306aa20d-6e56-4258-9d63-1d8d17533a14" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Actividad 7 Really/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Actividad 7 Really/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Actividad 7 Really/mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Actividad 7 Really/mainwindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Actividad 7 Really/particula.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Actividad 7 Really/particula.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +33,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainwindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
+            <state relative-caret-position="331">
               <caret line="47" column="33" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
               <folding>
                 <element signature="e#0#81#0" expanded="true" />
@@ -88,7 +93,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Actividad 7 Really" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -172,19 +177,20 @@
       <workItem from="1551123457932" duration="4657000" />
       <workItem from="1551279274111" duration="178000" />
       <workItem from="1551374593494" duration="2266000" />
-      <workItem from="1551537003719" duration="2147000" />
+      <workItem from="1551537003719" duration="2359000" />
+      <workItem from="1551578094752" duration="12000" />
+      <workItem from="1551578145614" duration="504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18725000" />
+    <option name="totallyTimeSpent" value="19453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2806354" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.28971255" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32405892" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -234,16 +240,6 @@
     <entry file="file://$PROJECT_DIR$/destino.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding>
-            <element signature="e#99#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/paqueteria.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -261,9 +257,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding>
+            <element signature="e#99#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
+        <state relative-caret-position="331">
           <caret line="47" column="33" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
           <folding>
             <element signature="e#0#81#0" expanded="true" />
