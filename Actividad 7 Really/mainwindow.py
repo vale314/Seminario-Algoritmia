@@ -39,16 +39,32 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def ordenar_velocidad(self):
+        self.scene.clear()
+        self.scene = QGraphicsScene()
+        #self.scene.setSceneRect(0,500)
+        self.ui.graphicsView.setScene(self.scene)
+
+        self.pen = QPen()
+        self.pen.setColor(QColor(0, 0, 0))
+        self.pen.setWidth(1)
         self.capturador.ordenar_velocidad()
         y=0
         for particula in self.capturador.lista:
             self.ui.plainTextEdit.insertPlainText(str(particula))
             self.pen.setColor(QColor(particula.red, particula.green, particula.blue))
-            self.scene.addLine(0, y, particula.velocidad, y, self.pen)
+            self.scene.addLine(0, y, particula.distancia, y, self.pen)
             y=y+2
 
     @Slot()
     def ordenar_distancia(self):
+        self.scene.clear()
+        self.scene = QGraphicsScene()
+        #self.scene.setSceneRect(0,500)
+        self.ui.graphicsView.setScene(self.scene)
+
+        self.pen = QPen()
+        self.pen.setColor(QColor(0, 0, 0))
+        self.pen.setWidth(1)
         self.capturador.ordenar_distancia()
         y=0
         for particula in self.capturador.lista:
@@ -60,7 +76,13 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def guardar(self):
+        self.scene = QGraphicsScene()
+        #self.scene.setSceneRect(0,500)
+        self.ui.graphicsView.setScene(self.scene)
 
+        self.pen = QPen()
+        self.pen.setColor(QColor(0, 0, 0))
+        self.pen.setWidth(1)
         file= QFileDialog.getSaveFileName(self, 'Guardar archivo...', '.', 'JSON (*.json)')
         print(file)
         self.capturador.guardar(file[0],self.pen,self.scene)
@@ -72,12 +94,19 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def mostrar(self):
+        self.scene.clear()
         self.scene.addLine(0, 0, 499, 0, self.pen)
+        y=0
         for particula in self.capturador.lista:
             self.ui.plainTextEdit.insertPlainText(str(particula))
             self.pen.setColor(QColor(particula.red, particula.green, particula.blue))
-            self.scene.addEllipse(particula.origenX, particula.origenY, 5, 5, self.pen, QBrush(QColor(particula.red, 10,particula.green, particula.blue)))
-            self.scene.addLine(particula.origenX, particula.origenY, particula.destinoX, particula.destinoY, self.pen)
+            self.scene.addLine(0, y, particula.distancia, y, self.pen)
+            y=y+2
+        #for particula in self.capturador.lista:
+         #   self.ui.plainTextEdit.insertPlainText(str(particula))
+          #  self.pen.setColor(QColor(particula.red, particula.green, particula.blue))
+           # self.scene.addEllipse(particula.origenX, particula.origenY, 5, 5, self.pen, QBrush(QColor(particula.red, 10,particula.green, particula.blue)))
+            #self.scene.addLine(particula.origenX, particula.origenY, particula.destinoX, particula.destinoY, self.pen)
         #self.paqueteria.mostrar()
 
     @Slot()

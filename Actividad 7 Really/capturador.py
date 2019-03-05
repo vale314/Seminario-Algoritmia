@@ -50,4 +50,4 @@ class Capturador:
 
     def ordenar_distancia(self):
         #,reverse=TRUE
-        self.lista.sort(key=self.ordenarDistancia)
+        self.lista.sort(key=self.ordenarDistancia,reverse=True)
