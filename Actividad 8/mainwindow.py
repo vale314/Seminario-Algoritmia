@@ -45,13 +45,20 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def puntos_cercanos(self):
-        i=0;
-        for particula in self.lista:
-            particulaMenor=particula[i+1];
-            i=i+1;
-            for particula2 in self.lista:
-                if(math.sqrt(pow((int(particula2.destinoX)-int(particula2.origenX)),2)+pow((int(particulaMenor.destinoY)-int(particulaMenor.origenY)),2))<math.sqrt(pow((int(particula2.destinoX)-int(particula2.origenX)),2)+pow((int(particula2.destinoY)-int(particula2.origenY)),2)))
-                print (particulaMenor,particula2)
+        for i in range(len(self.lista)-1):
+            particulaMenor=self.lista[i+1];
+
+            for j in range(len(self.lista)-1):
+                particula2=self.lista[j]
+                if(j==0):
+                    auxDistancia=math.sqrt(pow((int(particula2['x']) - int(particulaMenor['x'])), 2) + pow((int(particula2['y']) - int(particulaMenor['y'])), 2))
+                    aux={'origen':particulaMenor,'destino':particula2}
+
+                if((math.sqrt(pow((int(particula2['x'])-int(particulaMenor['x'])),2)+pow((int(particula2['y'])-int(particulaMenor['y'])),2))<auxDistancia)and(particulaMenor!=particula2)):
+                    auxDistancia = math.sqrt(pow((int(particula2['x']) - int(particulaMenor['x'])), 2) + pow((int(particula2['y']) - int(particulaMenor['y'])), 2))
+                    aux = {'origen': particulaMenor, 'destino': particula2}
+            self.listaMenor.append(aux);
+            self.dibujar();
 
     @Slot()
     def mostarParticulasPuntos(self):
@@ -104,6 +111,21 @@ class MainWindow(QMainWindow):
             self.pen.setColor(QColor(particula.red, particula.green, particula.blue))
             self.scene.addLine(0, y, particula.distancia, y, self.pen)
             y=y+2
+
+    def dibujar(self):
+        self.scene.clear()
+        self.scene = QGraphicsScene()
+        # self.scene.setSceneRect(0,500)
+        self.ui.graphicsView.setScene(self.scene)
+
+        self.pen = QPen()
+        self.pen.setColor(QColor(0, 0, 0))
+        self.pen.setWidth(1)
+        self.capturador.ordenar_distancia()
+
+        for new in self.listaMenor:
+            self.pen.setColor(QColor(new['origen']['color']['red'], new['origen']['color']['green'], new['origen']['color']['blue']))
+            self.scene.addLine(new['origen']['x'], new['origen']['y'], new['destino']['x'], new['destino']['y'], self.pen)
 
     @Slot()
     def ordenar_distancia(self):
