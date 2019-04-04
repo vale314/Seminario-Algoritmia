@@ -4,6 +4,8 @@ from capturador import Capturador
 from PySide2.QtWidgets import QMainWindow, QMessageBox,QFileDialog,QGraphicsScene
 from ui_mainwindow import Ui_MainWindow
 from PySide2.QtGui import QPen, QColor,QBrush
+import pprint
+
 import json
 #https://www.geeksforgeeks.org/python-program-for-bubble-sort/
 import math
@@ -27,7 +29,10 @@ class MainWindow(QMainWindow):
 
         self.lista=[];
         self.listaMenor=[];
-
+        self.grafoG = dict()
+        self.pila=[]
+        self.cola=[]
+        self.visitados=[]
         self.capturador=Capturador()
 
         self.ui.pushButton.clicked.connect(self.click)
@@ -42,6 +47,103 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_3.clicked.connect(self.ordenar_velocidad)
 
         self.ui.pushButton_4.clicked.connect(self.ordenar_distancia)
+
+        self.ui.pushButton_5.clicked.connect(self.grafo)
+
+        self.ui.pushButton_6.clicked.connect(self.rProfundidad)
+
+        self.ui.pushButton_7.clicked.connect(self.rAnchura)
+
+
+    def buscarPila(self,busqueda):
+        for actual in self.visitados:
+            if actual==busqueda:
+                return True;
+        return False;
+
+
+    @Slot()
+    def rAnchura(self):
+        self.ui.plainTextEdit.clear()
+        self.llenarGrafo()
+        self.visitados=[]
+        self.scene.clear()
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
+        origenX = int(self.ui.lineEdit_2.text())
+        origenY = int(self.ui.lineEdit_6.text())
+        self.cola.append((origenX,origenY))
+
+        while len(self.cola)!=0:
+            actual=self.cola[0]
+            print(actual)
+            self.cola.pop(0)
+            if self.buscarPila(actual)==False:
+                self.visitados.append(actual)
+                print(actual)
+                str = pprint.pformat(actual)
+                self.ui.plainTextEdit.insertPlainText(str+'\n')
+                for vecino in self.grafoG[actual]:
+                    if(self.buscarPila(vecino)==False):
+                        self.cola.append(vecino[0])
+    def llenarGrafo(self):
+        self.grafoG=dict()
+        for particula in self.capturador.lista:
+            origen = (particula.origenX, particula.origenY)
+            destino = (particula.destinoX, particula.destinoY)
+            if origen in self.grafoG:
+                self.grafoG[origen].append((destino, particula.distancia))
+            else:
+                self.grafoG[origen] = [(destino, particula.distancia)]
+            if destino in self.grafoG:
+                self.grafoG[destino].append((origen, particula.distancia))
+            else:
+                self.grafoG[destino] = [(origen, particula.distancia)]
+
+    @Slot()
+    def rProfundidad(self):
+        self.ui.plainTextEdit.clear()
+        self.llenarGrafo();
+        self.visitados=[]
+        self.scene.clear()
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
+        origenX = int(self.ui.lineEdit_2.text())
+        origenY = int(self.ui.lineEdit_6.text())
+        self.pila.append((origenX,origenY))
+
+        while len(self.pila)!=0:
+            actual=self.pila[len(self.pila)-1]
+            self.pila.pop()
+            if self.buscarPila(actual)==False:
+                self.visitados.append(actual)
+                print(actual)
+                str = pprint.pformat(actual)
+                self.ui.plainTextEdit.insertPlainText(str+'\n')
+                for vecino in self.grafoG[actual]:
+                    if(self.buscarPila(vecino)==False):
+                        self.pila.append(vecino[0])
+
+
+    @Slot()
+    def grafo(self):
+          # {}
+        self.scene.clear()
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
+        for particula in self.capturador.lista:
+            origen=(particula.origenX,particula.origenY)
+            destino=(particula.destinoX,particula.destinoY)
+            if origen in self.grafoG:
+                self.grafoG[origen].append((destino, particula.distancia))
+            else:
+                self.grafoG[origen] = [(destino, particula.distancia)]
+            if destino in self.grafoG:
+                self.grafoG[destino].append((origen, particula.distancia))
+            else:
+                self.grafoG[destino] = [(origen, particula.distancia)]
+        str = pprint.pformat(self.grafoG, width=40)
+        self.ui.plainTextEdit.insertPlainText(str)
 
     @Slot()
     def puntos_cercanos(self):

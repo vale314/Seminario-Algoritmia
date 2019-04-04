@@ -4,6 +4,8 @@ from capturador import Capturador
 from PySide2.QtWidgets import QMainWindow, QMessageBox,QFileDialog,QGraphicsScene
 from ui_mainwindow import Ui_MainWindow
 from PySide2.QtGui import QPen, QColor,QBrush
+import pprint
+
 import json
 #https://www.geeksforgeeks.org/python-program-for-bubble-sort/
 import math
@@ -42,6 +44,28 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_3.clicked.connect(self.ordenar_velocidad)
 
         self.ui.pushButton_4.clicked.connect(self.ordenar_distancia)
+
+        self.ui.pushButton_5.clicked.connect(self.grafo)
+
+    @Slot()
+    def grafo(self):
+        grafoG = dict()  # {}
+        self.scene.clear()
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
+        for particula in self.capturador.lista:
+            origen=(particula.origenX,particula.origenY)
+            destino=(particula.destinoX,particula.destinoY)
+            if origen in grafoG:
+                grafoG[origen].append((destino, particula.distancia))
+            else:
+                grafoG[origen] = [(destino, particula.distancia)]
+            if destino in grafoG:
+                grafoG[destino].append((origen, particula.distancia))
+            else:
+                grafoG[destino] = [(origen, particula.distancia)]
+        str = pprint.pformat(grafoG, width=40)
+        self.ui.plainTextEdit.insertPlainText(str)
 
     @Slot()
     def puntos_cercanos(self):
