@@ -109,7 +109,6 @@ class MainWindow(QMainWindow):
         self.pen.setWidth(3)
         for origen in self.grafoN:
             for destino in self.grafoN[origen]:
-                print(origen[0],origen[1],destino[0][0],destino[0][1])
                 self.pen.setColor(QColor(0, 0, 0))
                 self.scene.addLine(origen[0], origen[1], destino[0][0], destino[0][1],self.pen)
         self.pen.setWidth(1)
@@ -132,15 +131,19 @@ class MainWindow(QMainWindow):
 
         while not pq.empty():
             actual=pq.get()
+            print("Actual")
+            print(actual[1][1])
 
             if self.buscarPila(actual[1][1])==False:
                 self.visitados.append(actual[1][1])
 
+                print("Adyacentes")
                 for adyacentes in self.grafoG[actual[1][1]]:
-                    #print(adyacentes[1],actual[1][0],adyacentes[0])
-                    pq.put([adyacentes[1],(actual[1][0],adyacentes[0])])
+                    print(adyacentes[1],actual[1][1],adyacentes[0])
+                    pq.put([adyacentes[1],(actual[1][1],adyacentes[0])])
                 #NodoOrigen, NodoOrigen, Peso
                 self.llenarGrafoPrim(actual[1][0],actual[1][1],actual[0])
+                #print(actual[1][0],actual[1][1],actual[0])
 
     def llenarGrafoPrim(self,origen,destino,distancia):
         if origen in self.grafoN:
