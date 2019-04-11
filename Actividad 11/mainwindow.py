@@ -59,6 +59,60 @@ class MainWindow(QMainWindow):
 
         self.ui.pushButton_8.clicked.connect(self.algoritmoPrim)
 
+        self.ui.pushButton_9.clicked.connect(self.mostrarGrafo)
+
+        self.ui.pushButton_10.clicked.connect(self.mostrarGrafoG)
+
+    @Slot()
+    def mostrarGrafoG(self):
+        self.scene.clear()
+        self.scene = QGraphicsScene()
+        # self.scene.setSceneRect(0,500)
+        self.ui.graphicsView.setScene(self.scene)
+
+        self.pen = QPen()
+        self.pen.setColor(QColor(0, 0, 0))
+        self.pen.setWidth(1)
+        self.capturador.ordenar_velocidad()
+        for particula in self.capturador.lista:
+            self.lista.append({
+                'x':particula.origenX,
+                'y':particula.origenY,
+                'color':{
+                    'red':particula.red,
+                    'green':particula.green,
+                    'blue':particula.blue
+                }
+            })
+            self.lista.append({
+                'x':particula.destinoX,
+                'y':particula.destinoY,
+                'color':{
+                    'red':particula.red,
+                    'green':particula.green,
+                    'blue':particula.blue
+                }
+            })
+            self.ui.plainTextEdit.insertPlainText(str(particula))
+            self.pen.setColor(QColor(particula.red, particula.green, particula.blue))
+            self.scene.addEllipse(particula.origenX, particula.origenY, 5, 5, self.pen, QBrush(QColor(particula.red, 10,particula.green, particula.blue)))
+            self.scene.addLine(particula.origenX, particula.origenY, particula.destinoX, particula.destinoY,
+                               self.pen)
+
+    @Slot()
+    def mostrarGrafo(self):
+        str = pprint.pformat(self.grafoN, width=40)
+        self.ui.plainTextEdit.insertPlainText(str)
+
+        self.mostrarGrafoG()
+
+        self.pen.setWidth(3)
+        for origen in self.grafoN:
+            for destino in self.grafoN[origen]:
+                print(origen[0],origen[1],destino[0][0],destino[0][1])
+                self.pen.setColor(QColor(0, 0, 0))
+                self.scene.addLine(origen[0], origen[1], destino[0][0], destino[0][1],self.pen)
+        self.pen.setWidth(1)
     @Slot()
     def algoritmoPrim(self):
         self.visitados=[]
@@ -68,25 +122,25 @@ class MainWindow(QMainWindow):
         origenX = int(self.ui.lineEdit_2.text())
         origenY = int(self.ui.lineEdit_6.text())
 
-        self.visitados.append((origenX,origenY))
+        origen=(origenX,origenY)
 
-        for actual in self.grafoG[(origenX,origenY)]:
-            pq.put((actual[1],actual[0]))
+        self.visitados.append(origen)
 
-        #while not pq.empty():
-         #   print(pq.get())
+        for actual in self.grafoG[origen]:
+            pq.put([actual[1],(origen,actual[0])])
+        #distancia, origen. Destino
 
-        while len(pq)!=0:
+        while not pq.empty():
             actual=pq.get()
 
-            if self.buscarPila(actual[0])==False:
-                self.lista.append(actual[0])
+            if self.buscarPila(actual[1][1])==False:
+                self.visitados.append(actual[1][1])
 
-                for adyacentes in self.grafoG[actual[0]]:
-                    pq.put((adyacentes[1], adyacentes[0]))
-                    #NodoOrigen, NodoOrigen, Peso
-            self.llenarGrafoPrim(actual[0],actual[][])
-
+                for adyacentes in self.grafoG[actual[1][1]]:
+                    #print(adyacentes[1],actual[1][0],adyacentes[0])
+                    pq.put([adyacentes[1],(actual[1][0],adyacentes[0])])
+                #NodoOrigen, NodoOrigen, Peso
+                self.llenarGrafoPrim(actual[1][0],actual[1][1],actual[0])
 
     def llenarGrafoPrim(self,origen,destino,distancia):
         if origen in self.grafoN:
@@ -121,6 +175,7 @@ class MainWindow(QMainWindow):
             actual=self.cola[0]
             print(actual)
             self.cola.pop(0)
+            print(actual)
             if self.buscarPila(actual)==False:
                 self.visitados.append(actual)
                 print(actual)
@@ -320,12 +375,7 @@ class MainWindow(QMainWindow):
             self.pen.setColor(QColor(particula.red, particula.green, particula.blue))
             self.scene.addLine(0, y, particula.distancia, y, self.pen)
             y=y+2
-        #for particula in self.capturador.lista:
-         #   self.ui.plainTextEdit.insertPlainText(str(particula))
-          #  self.pen.setColor(QColor(particula.red, particula.green, particula.blue))
-           # self.scene.addEllipse(particula.origenX, particula.origenY, 5, 5, self.pen, QBrush(QColor(particula.red, 10,particula.green, particula.blue)))
-            #self.scene.addLine(particula.origenX, particula.origenY, particula.destinoX, particula.destinoY, self.pen)
-        #self.paqueteria.mostrar()
+
 
     @Slot()
     def click(self):
