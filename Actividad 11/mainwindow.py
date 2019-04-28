@@ -248,6 +248,7 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def puntos_cercanos(self):
+        self.listaMenor=[]
         for i in range(len(self.lista)-1):
             particulaMenor=self.lista[i+1];
 
@@ -271,10 +272,22 @@ class MainWindow(QMainWindow):
         self.ui.graphicsView.setScene(self.scene)
 
         self.pen = QPen()
-        self.pen.setColor(QColor(0, 0, 0))
         self.pen.setWidth(1)
-        self.capturador.ordenar_velocidad()
+
         for particula in self.capturador.lista:
+
+            print(particula.origenX,particula.origenY)
+            ## Problema
+            ## Si hay un nodo que no tenga origen solo nodos que van hacia el no se dibuja
+            ## Soluccion
+            ## comparar en un nueva lista si el destino se encuentra en la lista de origenes
+            ## si no se encuentra dibujar
+
+            ##posible solucion
+            self.scene.addEllipse(particula.destinoX, particula.destinoY, 5, 5, self.pen, QBrush(QColor(particula.red, particula.green, particula.blue)))
+            self.scene.addEllipse(particula.origenX, particula.origenY, 5, 5, self.pen, QBrush(QColor(particula.red,particula.green, particula.blue)))
+
+            self.ui.plainTextEdit.insertPlainText(str(particula))
             self.lista.append({
                 'x':particula.origenX,
                 'y':particula.origenY,
@@ -293,9 +306,6 @@ class MainWindow(QMainWindow):
                     'blue':particula.blue
                 }
             })
-            self.ui.plainTextEdit.insertPlainText(str(particula))
-            self.pen.setColor(QColor(particula.red, particula.green, particula.blue))
-            self.scene.addEllipse(particula.origenX, particula.origenY, 5, 5, self.pen, QBrush(QColor(particula.red, 10,particula.green, particula.blue)))
 
     @Slot()
     def ordenar_velocidad(self):
