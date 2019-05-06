@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Sun Apr 28 03:33:19 2019
+# Created: Tue Apr 30 11:43:01 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -82,16 +82,16 @@ class Ui_MainWindow(object):
         self.lineEdit_9.setGeometry(QtCore.QRect(280, 140, 61, 21))
         self.lineEdit_9.setObjectName("lineEdit_9")
         self.label_6 = QtWidgets.QLabel(self.groupBox_2)
-        self.label_6.setGeometry(QtCore.QRect(150, 20, 49, 20))
+        self.label_6.setGeometry(QtCore.QRect(150, 40, 49, 20))
         self.label_6.setObjectName("label_6")
         self.lineEdit_6 = QtWidgets.QLineEdit(self.groupBox_2)
-        self.lineEdit_6.setGeometry(QtCore.QRect(220, 20, 71, 21))
+        self.lineEdit_6.setGeometry(QtCore.QRect(220, 40, 71, 21))
         self.lineEdit_6.setObjectName("lineEdit_6")
         self.label_7 = QtWidgets.QLabel(self.groupBox_2)
-        self.label_7.setGeometry(QtCore.QRect(150, 50, 49, 20))
+        self.label_7.setGeometry(QtCore.QRect(150, 80, 49, 20))
         self.label_7.setObjectName("label_7")
         self.lineEdit_7 = QtWidgets.QLineEdit(self.groupBox_2)
-        self.lineEdit_7.setGeometry(QtCore.QRect(220, 50, 71, 21))
+        self.lineEdit_7.setGeometry(QtCore.QRect(220, 80, 71, 21))
         self.lineEdit_7.setObjectName("lineEdit_7")
         self.gridLayout_2.addWidget(self.groupBox_2, 0, 0, 1, 5)
         self.pushButton = QtWidgets.QPushButton(self.groupBox)
@@ -124,6 +124,8 @@ class Ui_MainWindow(object):
         self.menusds.setObjectName("menusds")
         self.menuParticula = QtWidgets.QMenu(self.menubar)
         self.menuParticula.setObjectName("menuParticula")
+        self.menuAlgoritmo = QtWidgets.QMenu(self.menubar)
+        self.menuAlgoritmo.setObjectName("menuAlgoritmo")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -136,12 +138,16 @@ class Ui_MainWindow(object):
         self.actionMostar.setObjectName("actionMostar")
         self.actionPuntos_Cercanos = QtWidgets.QAction(MainWindow)
         self.actionPuntos_Cercanos.setObjectName("actionPuntos_Cercanos")
+        self.actionkrustal = QtWidgets.QAction(MainWindow)
+        self.actionkrustal.setObjectName("actionkrustal")
         self.menusds.addAction(self.actionGuardar)
         self.menusds.addAction(self.actionAbrir_2)
         self.menuParticula.addAction(self.actionMostar)
         self.menuParticula.addAction(self.actionPuntos_Cercanos)
+        self.menuAlgoritmo.addAction(self.actionkrustal)
         self.menubar.addAction(self.menusds.menuAction())
         self.menubar.addAction(self.menuParticula.menuAction())
+        self.menubar.addAction(self.menuAlgoritmo.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -171,10 +177,12 @@ class Ui_MainWindow(object):
         self.pushButton_9.setText(QtWidgets.QApplication.translate("MainWindow", "Dibujar Prim", None, -1))
         self.menusds.setTitle(QtWidgets.QApplication.translate("MainWindow", "Archivo", None, -1))
         self.menuParticula.setTitle(QtWidgets.QApplication.translate("MainWindow", "Particula", None, -1))
+        self.menuAlgoritmo.setTitle(QtWidgets.QApplication.translate("MainWindow", "Algoritmo", None, -1))
         self.actionGuardar.setText(QtWidgets.QApplication.translate("MainWindow", "Guardar", None, -1))
         self.actionGuardar.setShortcut(QtWidgets.QApplication.translate("MainWindow", "Ctrl+S", None, -1))
         self.actionAbrir_2.setText(QtWidgets.QApplication.translate("MainWindow", "Abrir", None, -1))
         self.actionAbrir_2.setShortcut(QtWidgets.QApplication.translate("MainWindow", "Ctrl+O", None, -1))
         self.actionMostar.setText(QtWidgets.QApplication.translate("MainWindow", "Mostar", None, -1))
         self.actionPuntos_Cercanos.setText(QtWidgets.QApplication.translate("MainWindow", "Puntos Cercanos", None, -1))
+        self.actionkrustal.setText(QtWidgets.QApplication.translate("MainWindow", "krustkal", None, -1))
 

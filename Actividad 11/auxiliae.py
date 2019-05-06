@@ -1,7 +1,6 @@
 from PySide2.QtCore import Slot
 from particula import Particula
 from capturador import Capturador
-from disjoint_set import DisjointSet
 from PySide2.QtWidgets import QMainWindow, QMessageBox,QFileDialog,QGraphicsScene
 from ui_mainwindow import Ui_MainWindow
 from PySide2.QtGui import QPen, QColor,QBrush
@@ -80,24 +79,36 @@ class MainWindow(QMainWindow):
         for particula in self.capturador.lista:
             self.pq.put([particula.distancia,((particula.origenX,particula.origenY),(particula.destinoX,particula.destinoY))])
 
-        self.llenarDisjointSet()
+        #self.llenarDisjointSet()
 
-        for particula in self.capturador.lista:
-            self.pq.put([particula.distancia,((particula.origenX,particula.origenY),(particula.destinoX,particula.destinoY))])
-
-        conjunto = DisjointSet(self.disjointSet)
-        print(conjunto.get())
+        #for particula in self.capturador.lista:
+        #    self.pq.put([particula.distancia,((particula.origenX,particula.origenY),(particula.destinoX,particula.destinoY))])
 
         while not self.pq.empty():
             actual=self.pq.get()
 
-            if actual[1][0] not in conjunto.find(actual[1][1]):
+            if len(self.disjointSet)==0:
+                self.disjointSet.append(actual[1][0])
+
+            print("Elemento A Buscar: "+str(actual[1][0]),str(actual[1][1]),str(actual[0]))
+            print("Conjunto")
+            print(self.disjointSet)
+
+            if actual[1][1] not in self.disjointSet or actual[1][0] not in self.disjointSet :
                 self.llenarGrafoKrustal(actual[1][0],actual[1][1],actual[0]);
-                print(actual[1][0],actual[1][1])
-                conjunto.union(actual[1][0],actual[1][1])
+                self.disjointSet.append(actual[1][1])
+                self.disjointSet.append(actual[1][0])
+
+        print("Grafo Krustal  -------------------")
+        print(str(self.grafoKruskal))
+
 
         self.mostrarGrafoG()
 
+        print("Grafo Original ---------")
+        print(str(self.grafoN))
+
+        print("----------------------------")
         self.pen.setWidth(3)
         for item in self.grafoKruskal.items():
             print(item)
@@ -107,6 +118,10 @@ class MainWindow(QMainWindow):
                 print(item[0][0],item[0][1],item2[0][0],item2[0][1])
         self.pen.setWidth(1)
 
+    def union(self, set1, set2):
+        root1 = self.find(set1)
+        root2 = self.find(set2)
+        self.parent[root1] = root2
 
     def llenarDisjointSet(self):
         pqAux=self.pq

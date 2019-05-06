@@ -339,8 +339,15 @@
     <addaction name="actionMostar"/>
     <addaction name="actionPuntos_Cercanos"/>
    </widget>
+   <widget class="QMenu" name="menuAlgoritmo">
+    <property name="title">
+     <string>Algoritmo</string>
+    </property>
+    <addaction name="actionkrustal"/>
+   </widget>
    <addaction name="menusds"/>
    <addaction name="menuParticula"/>
+   <addaction name="menuAlgoritmo"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionGuardar">
@@ -367,6 +374,11 @@
   <action name="actionPuntos_Cercanos">
    <property name="text">
     <string>Puntos Cercanos</string>
+   </property>
+  </action>
+  <action name="actionkrustal">
+   <property name="text">
+    <string>krustkal</string>
    </property>
   </action>
  </widget>
