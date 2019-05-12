@@ -344,6 +344,8 @@
      <string>Algoritmo</string>
     </property>
     <addaction name="actionkrustal"/>
+    <addaction name="separator"/>
+    <addaction name="actionDijkstra"/>
    </widget>
    <addaction name="menusds"/>
    <addaction name="menuParticula"/>
@@ -379,6 +381,11 @@
   <action name="actionkrustal">
    <property name="text">
     <string>krustkal</string>
+   </property>
+  </action>
+  <action name="actionDijkstra">
+   <property name="text">
+    <string>Dijkstra</string>
    </property>
   </action>
  </widget>

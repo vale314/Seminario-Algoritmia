@@ -68,6 +68,84 @@ class MainWindow(QMainWindow):
 
         self.ui.actionkrustal.triggered.connect(self.kruskal)
 
+        self.ui.actionDijkstra.triggered.connect(self.disjkstra)
+
+    @Slot()
+    def disjkstra(self):
+        origenX = int(self.ui.lineEdit_2.text())
+        origenY = int(self.ui.lineEdit_6.text())
+
+        self.pq = PriorityQueue()
+        self.disjointSet = []
+        self.arregloDistancias=[]
+
+        origen=(origenX,origenY)
+
+        self.llenarGrafo();
+
+        # obtenemos Todos los Nodos sin repetir en una lista disjointSet
+        for particula in self.capturador.lista:
+            if(particula.origenX==origenX and particula.origenY==origenY):
+                self.pq.put([particula.distancia,((particula.origenX,particula.origenY),(particula.destinoX,particula.destinoY))])
+            else:
+                self.pq.put([9999,((particula.origenX, particula.origenY), (particula.destinoX, particula.destinoY))])
+
+        self.llenarDisjointSet()
+        #Fin
+
+        #Tenemos Todos los minimos desde el orgien los demas que no hay conexion directa es su peso 9999
+        for particula in self.capturador.lista:
+            if (particula.origenX == origenX and particula.origenY == origenY):
+                if particula not in  self.arregloDistancias:
+                    self.arregloDistancias.append([(particula.destinoX, particula.destinoY),particula.distancia])
+
+        self.arregloDistancias.append([origen,0])
+
+        for item in self.disjointSet:
+            if self.buscarEnArregloDistancia(item):
+                self.arregloDistancias.append([item, 9999])
+
+        print("Arreglo De Distancias")
+        for item in self.arregloDistancias:
+            print(item)
+
+        #fin#
+
+        #se crea un diccionario
+        self.camino = []
+
+        #se crea una lista ordenada y se agrega el origen con una distancia 0
+        listaOrdenada=PriorityQueue()
+        for item in self.arregloDistancias:
+            if item[0] == origen:
+                listaOrdenada.put([item[1],item[0]])
+
+        #Miestras la Lista Ordenada no este vacia extraer el nodo revisar cada conexion del nodo
+        while not listaOrdenada.empty():
+            actual=listaOrdenada.get()
+            print("Adyacentes---------")
+            for adyacentes in self.grafoG[actual[1]]:
+                print("Adyacente")
+                print(adyacentes)
+                if self.buscarEnArregloDistancia(adyacentes[0])==False:
+                    print("elemento encontrado")
+                    elem=self.obtenerElemEnArregloDistancia(adyacentes[0])
+                    print(elem)
+                    if elem[1]+adyacentes[1] < elem[1]:
+                        print(elem[0],elem[1]+adya)
+
+    def obtenerElemEnArregloDistancia(self, item):
+        for particula in self.arregloDistancias:
+            if item == particula[0]:
+                return particula;
+        return False;
+
+    def buscarEnArregloDistancia(self,item):
+        for particula in self.arregloDistancias:
+            if item == particula[0]:
+                return False;
+        return True;
+
     @Slot()
     def kruskal(self):
         self.visitados = []
