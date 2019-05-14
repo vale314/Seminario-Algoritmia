@@ -94,11 +94,11 @@ class MainWindow(QMainWindow):
         #Fin
 
         #Tenemos Todos los minimos desde el orgien los demas que no hay conexion directa es su peso 9999
-        for particula in self.capturador.lista:
+        '''for particula in self.capturador.lista:
             if (particula.origenX == origenX and particula.origenY == origenY):
                 if particula not in  self.arregloDistancias:
                     self.arregloDistancias.append([(particula.destinoX, particula.destinoY),particula.distancia])
-
+        '''
         self.arregloDistancias.append([origen,0])
 
         for item in self.disjointSet:
@@ -111,8 +111,16 @@ class MainWindow(QMainWindow):
 
         #fin#
 
-        #se crea un diccionario
+        #se crea un Camino
         self.camino = []
+        for item in self.arregloDistancias:
+            if item[0]==origen:
+                self.camino.append((item[0],item[0]))
+            self.camino.append((item[0],0))
+
+        print("Camino")
+        for item in self.camino:
+            print(item)
 
         #se crea una lista ordenada y se agrega el origen con una distancia 0
         listaOrdenada=PriorityQueue()
@@ -123,16 +131,37 @@ class MainWindow(QMainWindow):
         #Miestras la Lista Ordenada no este vacia extraer el nodo revisar cada conexion del nodo
         while not listaOrdenada.empty():
             actual=listaOrdenada.get()
-            print("Adyacentes---------")
+            print("Adyacentes----de-----")
+            print(actual)
             for adyacentes in self.grafoG[actual[1]]:
                 print("Adyacente")
                 print(adyacentes)
                 if self.buscarEnArregloDistancia(adyacentes[0])==False:
-                    print("elemento encontrado")
+                    print("Peso En Diccionario Distancias")
                     elem=self.obtenerElemEnArregloDistancia(adyacentes[0])
+                    ori=self.obtenerElemEnArregloDistancia(actual[1])
                     print(elem)
-                    if elem[1]+adyacentes[1] < elem[1]:
-                        print(elem[0],elem[1]+adya)
+                    if adyacentes[1]+ori[1] < elem[1]:
+                        '''print("Nuevo Peso")
+                            print(elem[0],adyacentes[1]+ori[1])
+                        '''
+                        idx=0
+                        for item in self.arregloDistancias:
+                            if item[0] == adyacentes[0]:
+                                self.arregloDistancias[idx]=[(elem[0],adyacentes[1]+ori[1])]
+                            idx=idx+1
+                        '''
+                            a el nodo elem[0] en su camino[elem[0]]:actual[1]
+                            es un decir a el nodo que tenemos el elemento en su   
+                        '''
+                        idx = 0
+                        for item in self.camino:
+                            if item[0] == elem[0]:
+                                self.camino[idx]=[(item[0],actual[1])]
+                            idx=idx+1
+            print("Camino New")
+            for item in self.camino:
+                print(item)
 
     def obtenerElemEnArregloDistancia(self, item):
         for particula in self.arregloDistancias:
