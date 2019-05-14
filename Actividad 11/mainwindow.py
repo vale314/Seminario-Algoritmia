@@ -70,6 +70,44 @@ class MainWindow(QMainWindow):
 
         self.ui.actionDijkstra.triggered.connect(self.disjkstra)
 
+        self.ui.actionCamino_Dijkstra.triggered.connect(self.camino_disjktra)
+
+    @Slot()
+    def camino_disjktra(self):
+        origenX = int(self.ui.lineEdit_2.text())
+        origenY = int(self.ui.lineEdit_6.text())
+
+        destino=(origenX,origenY)
+        print("Camino")
+
+        siguiente=destino
+
+        var=True
+        caminoNew=[]
+        caminoNew.append(destino)
+
+        while var:
+            for item in self.camino:
+                if siguiente == item[0] and siguiente ==item[1]:
+                    caminoNew.append(item[1])
+                    var=False
+                    break
+                    return
+                elif item[0] == siguiente:
+                    caminoNew.append(item[1])
+                    siguiente=item[1]
+
+        nuev=caminoNew.pop()
+
+        self.pen.setColor(QColor(0, 0, 0))
+        self.pen.setWidth(3)
+        while len(caminoNew)>0:
+            dest=caminoNew.pop()
+            self.scene.addLine(nuev[0], nuev[1], dest[0], dest[1], self.pen)
+            print(nuev,dest)
+            nuev=dest
+        self.pen.setWidth(1)
+
     @Slot()
     def disjkstra(self):
         origenX = int(self.ui.lineEdit_2.text())
@@ -116,7 +154,8 @@ class MainWindow(QMainWindow):
         for item in self.arregloDistancias:
             if item[0]==origen:
                 self.camino.append((item[0],item[0]))
-            self.camino.append((item[0],0))
+            else:
+                self.camino.append((item[0],0))
 
         print("Camino")
         for item in self.camino:
@@ -137,18 +176,13 @@ class MainWindow(QMainWindow):
                 print("Adyacente")
                 print(adyacentes)
                 if self.buscarEnArregloDistancia(adyacentes[0])==False:
-                    print("Peso En Diccionario Distancias")
                     elem=self.obtenerElemEnArregloDistancia(adyacentes[0])
                     ori=self.obtenerElemEnArregloDistancia(actual[1])
-                    print(elem)
                     if adyacentes[1]+ori[1] < elem[1]:
-                        '''print("Nuevo Peso")
-                            print(elem[0],adyacentes[1]+ori[1])
-                        '''
                         idx=0
                         for item in self.arregloDistancias:
                             if item[0] == adyacentes[0]:
-                                self.arregloDistancias[idx]=[(elem[0],adyacentes[1]+ori[1])]
+                                self.arregloDistancias[idx]=((elem[0],adyacentes[1]+ori[1]))
                             idx=idx+1
                         '''
                             a el nodo elem[0] en su camino[elem[0]]:actual[1]
@@ -157,13 +191,20 @@ class MainWindow(QMainWindow):
                         idx = 0
                         for item in self.camino:
                             if item[0] == elem[0]:
-                                self.camino[idx]=[(item[0],actual[1])]
+                                self.camino[idx]=((item[0],actual[1]))
                             idx=idx+1
+                        listaOrdenada.put([adyacentes[1]+ori[1],elem[0]])
+
             print("Camino New")
             for item in self.camino:
                 print(item)
+            print("arreglo distancias")
+            for item in self.arregloDistancias:
+                print(item)
 
     def obtenerElemEnArregloDistancia(self, item):
+        for particula in self.arregloDistancias:
+            print(particula)
         for particula in self.arregloDistancias:
             if item == particula[0]:
                 return particula;

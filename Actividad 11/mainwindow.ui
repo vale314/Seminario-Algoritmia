@@ -346,6 +346,7 @@
     <addaction name="actionkrustal"/>
     <addaction name="separator"/>
     <addaction name="actionDijkstra"/>
+    <addaction name="actionCamino_Dijkstra"/>
    </widget>
    <addaction name="menusds"/>
    <addaction name="menuParticula"/>
@@ -386,6 +387,11 @@
   <action name="actionDijkstra">
    <property name="text">
     <string>Dijkstra</string>
+   </property>
+  </action>
+  <action name="actionCamino_Dijkstra">
+   <property name="text">
+    <string>Camino Dijkstra</string>
    </property>
   </action>
  </widget>

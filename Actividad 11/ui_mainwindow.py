@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'mainwindow.ui',
 # licensing of 'mainwindow.ui' applies.
 #
-# Created: Tue May  7 12:00:30 2019
+# Created: Tue May 14 15:17:19 2019
 #      by: pyside2-uic  running on PySide2 5.12.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -142,6 +142,8 @@ class Ui_MainWindow(object):
         self.actionkrustal.setObjectName("actionkrustal")
         self.actionDijkstra = QtWidgets.QAction(MainWindow)
         self.actionDijkstra.setObjectName("actionDijkstra")
+        self.actionCamino_Dijkstra = QtWidgets.QAction(MainWindow)
+        self.actionCamino_Dijkstra.setObjectName("actionCamino_Dijkstra")
         self.menusds.addAction(self.actionGuardar)
         self.menusds.addAction(self.actionAbrir_2)
         self.menuParticula.addAction(self.actionMostar)
@@ -149,6 +151,7 @@ class Ui_MainWindow(object):
         self.menuAlgoritmo.addAction(self.actionkrustal)
         self.menuAlgoritmo.addSeparator()
         self.menuAlgoritmo.addAction(self.actionDijkstra)
+        self.menuAlgoritmo.addAction(self.actionCamino_Dijkstra)
         self.menubar.addAction(self.menusds.menuAction())
         self.menubar.addAction(self.menuParticula.menuAction())
         self.menubar.addAction(self.menuAlgoritmo.menuAction())
@@ -190,4 +193,5 @@ class Ui_MainWindow(object):
         self.actionPuntos_Cercanos.setText(QtWidgets.QApplication.translate("MainWindow", "Puntos Cercanos", None, -1))
         self.actionkrustal.setText(QtWidgets.QApplication.translate("MainWindow", "krustkal", None, -1))
         self.actionDijkstra.setText(QtWidgets.QApplication.translate("MainWindow", "Dijkstra", None, -1))
+        self.actionCamino_Dijkstra.setText(QtWidgets.QApplication.translate("MainWindow", "Camino Dijkstra", None, -1))
 
